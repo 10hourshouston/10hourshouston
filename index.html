@@ -51,16 +51,15 @@
 <a class="skip" href="#main">Skip to content</a>
 
 <!-- REGISTRATION IS OFF
-     Registration has not opened yet, so every Register link is commented out and
-     the status portal reads "Opening Soon".
+     Registration has not opened yet, so the Register buttons are inert.
 
      To switch registration back on:
-       1. set  REGISTRATION_OPEN = true  in the script at the bottom of this file
-       2. search for  REGISTER LINK OFF  and uncomment each block
-          (nav bar, mobile drawer, hero, speakers here; also schedule.html)
-       3. uncomment the #register section further down this page
-       4. change the <meta name="description"> back to "Registration is open."
-       5. restore the JSON-LD "offers" block (see the note beside it)
+       1. search for  aria-disabled  and swap each inert Register button for the
+          real link (the exact markup sits in a comment directly above each one).
+          Four in this file, three in schedule.html
+       2. uncomment the #register section further down this page
+       3. change the <meta name="description"> back to "Registration is open."
+       4. restore the JSON-LD "offers" block (see the note beside it)
      Search this file for  luma.com  to find every remaining reference. -->
 
 <div class="site-bg" aria-hidden="true"></div>
@@ -77,12 +76,6 @@
     <g transform="translate(70.00,70.00)" fill="#FBFAF8">
       <path d="M5.0 0.0H32.4L49.400000000000006 98.8H50.2L78.0 0.0H98.4L125.60000000000001 98.8H126.4L143.4 0.0H170.8L141.8 140.0H116.4L88.60000000000001 41.599999999999994H87.80000000000001L59.400000000000006 140.0H34.0Z M188.8 0.0H216.0V140.0H188.8Z M273.8 23.0H232.0V0.0H342.8V23.0H301.0V140.0H273.8Z M357.8 0.0H382.2L444.6 95.0H445.0V0.0H471.20000000000005V140.0H446.8L384.40000000000003 45.19999999999999H384.0V140.0H357.8Z M496.20000000000005 0.0H597.4000000000001V23.0H523.4000000000001V58.39999999999999H591.6V81.0H523.4000000000001V117.0H597.4000000000001V140.0H496.20000000000005Z M613.4000000000001 118.4V98.4H640.2V110.2L646.8000000000001 116.8H688.2L695.0000000000001 110.0V86.8L688.4000000000001 80.19999999999999H635.4000000000001L613.8000000000001 58.599999999999994V21.599999999999994L635.4000000000001 0.0H698.6000000000001L720.2 21.599999999999994V41.8H693.4000000000001V29.799999999999997L686.8000000000001 23.19999999999999H647.2L640.6000000000001 29.799999999999997V50.39999999999999L647.2 57.0H700.2L721.8000000000001 78.6V118.0L699.8000000000001 140.0H635.0000000000001Z M739.8000000000001 118.4V98.4H766.6V110.2L773.2 116.8H814.6000000000001L821.4000000000001 110.0V86.8L814.8000000000001 80.19999999999999H761.8000000000001L740.2 58.599999999999994V21.599999999999994L761.8000000000001 0.0H825.0000000000001L846.6000000000001 21.599999999999994V41.8H819.8000000000001V29.799999999999997L813.2 23.19999999999999H773.6L767.0000000000001 29.799999999999997V50.39999999999999L773.6 57.0H826.6000000000001L848.2 78.6V118.0L826.2 140.0H761.4000000000001Z M869.2 0.0H970.4000000000001V23.0H896.4000000000001V58.39999999999999H964.6V81.0H896.4000000000001V117.0H970.4000000000001V140.0H869.2Z M986.4000000000001 118.4V98.4H1013.2V110.2L1019.8000000000001 116.8H1061.2L1068.0 110.0V86.8L1061.4 80.19999999999999H1008.4000000000001L986.8000000000001 58.599999999999994V21.599999999999994L1008.4000000000001 0.0H1071.6000000000001L1093.2 21.599999999999994V41.8H1066.4V29.799999999999997L1059.8000000000002 23.19999999999999H1020.2L1013.6000000000001 29.799999999999997V50.39999999999999L1020.2 57.0H1073.2L1094.8000000000002 78.6V118.0L1072.8000000000002 140.0H1008.0000000000001Z"/>
     </g>
-  </symbol>
-  <!-- torch mark on its own, for the hero and favicons -->
-  <symbol id="flame" viewBox="0 0 156.5 377.5337">
-    <path fill="#f73301" d="M95.1753,211.9315c-4.5762-16.16-29.03-29.3158-43.0441-35.894s-26.36-19.0195-26.36-19.0195c-6.8642,36.609,25.9313,54.9135,25.9313,54.9135C-30.668,181.8054,20.5273,88.3763,20.5273,88.3763,12.8051,141.86,66.0025,172.4624,78.3008,155.588s-13.4423-44.3311-13.4423-44.3311C12.5191,44.9032,88.3111,0,88.3111,0S52.4648,44.9032,101.2768,81.8934s72.4552,80.4635,23.2619,130.0381c0,0,44.2358-72.0739-50.3373-127.3687,0,0,73.9806,56.82,39.2783,127.3687h0a33.2041,33.2041,0,0,1-17.5443.199Z"/>
-    <path fill="#fff" d="M126.9234,262.8051c-20.2255,30.38-24.2867,70.9256-24.9614,91.5366-3.57-54.5268-39.537-81.5912-62.65-92.3716-20.08-9.3657-72.7959-37.4092-8.0527-47.618,0,0-.3393,10.24,27.2784,14.8683,27.6163,4.6443,83.7713.3856,97.956-22.2411C156.4935,206.9793,155.1815,220.33,126.9234,262.8051Z"/>
-    <path fill="#fff" d="M15.4414,264.5935s97.2815,22.7561,68.9841,112.94C84.4255,377.5337,83.1538,291.5535,15.4414,264.5935Z"/>
   </symbol>
   <symbol id="logo-dark" viewBox="0 0 898.152 377.5337">
     <path fill="#f73301" d="M95.1753,211.9315c-4.5762-16.16-29.03-29.3158-43.0441-35.894s-26.36-19.0195-26.36-19.0195c-6.8642,36.609,25.9313,54.9135,25.9313,54.9135C-30.668,181.8054,20.5273,88.3763,20.5273,88.3763,12.8051,141.86,66.0025,172.4624,78.3008,155.588s-13.4423-44.3311-13.4423-44.3311C12.5191,44.9032,88.3111,0,88.3111,0S52.4648,44.9032,101.2768,81.8934s72.4552,80.4635,23.2619,130.0381c0,0,44.2358-72.0739-50.3373-127.3687,0,0,73.9806,56.82,39.2783,127.3687h0a33.2041,33.2041,0,0,1-17.5443.199Z"/>
@@ -118,10 +111,10 @@
         <a href="#speakers">Speakers</a>
         <a href="/sponsors.html">Partner</a>
       </div>
-      <!-- REGISTER LINK OFF (nav bar). Delete this line and the one after it
-           to switch registration back on.
-      <a class="btn btn-primary nav-cta" href="https://luma.com/oe8cgk9v" target="_blank" rel="noopener">Register</a>
-           END REGISTER LINK OFF -->
+      <!-- Registration has not opened, so this button is deliberately inert.
+           To go live, swap it for:
+           <a class="btn btn-primary nav-cta" href="https://luma.com/oe8cgk9v" target="_blank" rel="noopener">Register</a> -->
+      <button class="btn btn-primary nav-cta" type="button" aria-disabled="true">Register<span class="btn-hint">Opens soon</span></button>
       <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="drawer" aria-label="Open menu">
         <span></span><span></span><span></span>
       </button>
@@ -136,29 +129,16 @@
   <a href="/schedule.html">Schedule</a>
   <a href="#speakers">Speakers</a>
   <a href="/sponsors.html">Partner With Us</a>
-  <!-- REGISTER LINK OFF (mobile drawer). Delete this line and the one after it
-       to switch registration back on.
-  <a class="btn btn-primary" href="https://luma.com/oe8cgk9v" target="_blank" rel="noopener">Register</a>
-       END REGISTER LINK OFF -->
+  <!-- Registration has not opened, so this button is deliberately inert.
+       To go live, swap it for:
+       <a class="btn btn-primary" href="https://luma.com/oe8cgk9v" target="_blank" rel="noopener">Register</a> -->
+  <button class="btn btn-primary" type="button" aria-disabled="true">Register<span class="btn-hint">Opens soon</span></button>
 </div>
 
 <main id="main">
 
   <header class="hero" id="top">
     <div class="hero-inner">
-      <!-- Status portal. Flips itself between three states from the event date:
-           open -> live -> ended. See the portal block in the script below. -->
-      <a class="portal is-soon" id="portal">
-        <span class="portal-sweep" aria-hidden="true"></span>
-        <span class="portal-rim" aria-hidden="true"></span>
-        <span class="portal-inner">
-          <span class="portal-disc" aria-hidden="true">
-            <svg class="portal-icon" viewBox="0 0 156.5 377.5337"><use href="#flame"></use></svg>
-          </span>
-          <span class="portal-title" id="portal-title">Opening Soon</span>
-          <span class="portal-sub" id="portal-sub">Registration opens soon</span>
-        </span>
-      </a>
       <h1 class="hero-title">
         <span class="sr-only">Witnesses</span>
         <svg class="hero-lockup" viewBox="0 0 1243.80 280.00" aria-hidden="true"
@@ -178,10 +158,10 @@
       <p class="sr-only" id="cd-sr"></p>
 
       <div class="cta-row">
-        <!-- REGISTER LINK OFF (hero). Delete this line and the one after it
-             to switch registration back on.
-        <a class="btn btn-primary" href="https://luma.com/oe8cgk9v" target="_blank" rel="noopener">Register</a>
-             END REGISTER LINK OFF -->
+        <!-- Registration has not opened, so this button is deliberately inert.
+             To go live, swap it for:
+             <a class="btn btn-primary" href="https://luma.com/oe8cgk9v" target="_blank" rel="noopener">Register</a> -->
+        <button class="btn btn-primary" type="button" aria-disabled="true">Register<span class="btn-hint">Opens soon</span></button>
         <a class="btn btn-ghost" href="#about">Learn more</a>
       </div>
     </div>
@@ -255,10 +235,10 @@
       <h2 class="h2" id="sp-h">Announced soon</h2>
       <p>Voices from science, technology, and media, on bearing witness to Christ in the places they work. Follow along to hear the line-up first.</p>
       <div class="pl-actions">
-        <!-- REGISTER LINK OFF (speakers). Delete this line and the one after it
-             to switch registration back on.
-        <a class="btn btn-primary" href="https://luma.com/oe8cgk9v" target="_blank" rel="noopener">Register</a>
-             END REGISTER LINK OFF -->
+        <!-- Registration has not opened, so this button is deliberately inert.
+             To go live, swap it for:
+             <a class="btn btn-primary" href="https://luma.com/oe8cgk9v" target="_blank" rel="noopener">Register</a> -->
+        <button class="btn btn-primary" type="button" aria-disabled="true">Register<span class="btn-hint">Opens soon</span></button>
         <a class="btn btn-ghost" href="https://www.instagram.com/10hourshouston" target="_blank" rel="noopener">Follow updates</a>
       </div>
     </div>
@@ -554,11 +534,6 @@
 
   /* ---- countdown ----
      Oct 31 2026 is still CDT (US DST ends Nov 1 2026), so the offset is -05:00. */
-  // Flip to true when registration opens. Also uncomment the REGISTER LINK OFF
-  // blocks and the #register section; see the note at the top of <body>.
-  var REGISTRATION_OPEN = false;
-  var REGISTER_URL = 'https://luma.com/oe8cgk9v';
-
   var target = new Date('2026-10-31T10:00:00-05:00').getTime();
   var ends   = new Date('2026-10-31T20:00:00-05:00').getTime();
   var box    = document.getElementById('countdown');
@@ -571,40 +546,6 @@
 
   function pad(n) { return (n < 10 ? '0' : '') + n; }
 
-  var portal      = document.getElementById('portal');
-  var portalTitle = document.getElementById('portal-title');
-  var portalSub   = document.getElementById('portal-sub');
-
-  function setPortal(state, title, sub) {
-    if (!portal) return;
-    if (portal.dataset.state === state) return;   // only touch the DOM on a change
-    portal.dataset.state = state;
-    portalTitle.textContent = title;
-    portalSub.textContent = sub;
-    portal.classList.toggle('is-soon', state === 'soon');
-    portal.classList.toggle('is-live', state === 'live');
-    portal.classList.toggle('is-closed', state === 'closed');
-    if (state === 'open' || state === 'live') {
-      portal.setAttribute('href', REGISTER_URL);
-      portal.setAttribute('target', '_blank');
-      portal.setAttribute('rel', 'noopener');
-      portal.removeAttribute('role');
-    } else if (state === 'soon') {
-      // nothing to link to yet, so it stays a plain status badge
-      portal.removeAttribute('href');
-      portal.removeAttribute('target');
-      portal.removeAttribute('rel');
-      portal.setAttribute('role', 'status');
-    }
-    if (state === 'closed') {
-      // no longer a destination: drop the link so it is not focusable or clickable
-      portal.removeAttribute('href');
-      portal.removeAttribute('target');
-      portal.removeAttribute('rel');
-      portal.setAttribute('role', 'status');
-    }
-  }
-
   function show(message) {
     box.hidden = true;
     liveTx.textContent = message;
@@ -615,16 +556,8 @@
 
   function tick() {
     var now = Date.now();
-    if (now >= ends) {
-      setPortal('closed', 'Portal Closed', 'The gathering has ended');
-      show('The gathering has ended \u2014 thank you'); return;
-    }
-    if (now >= target) {
-      setPortal('live', 'Doors Open', 'Happening now');
-      show('Happening now'); return;
-    }
-    if (REGISTRATION_OPEN) setPortal('open', 'Portal Open', 'Registration is open');
-    else                   setPortal('soon', 'Opening Soon', 'Registration opens soon');
+    if (now >= ends) { show('The gathering has ended \u2014 thank you'); return; }
+    if (now >= target) { show('Happening now'); return; }
 
     var x = target - now;
     var d = Math.floor(x / 86400000);

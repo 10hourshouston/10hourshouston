@@ -42,18 +42,20 @@ After deploying, check the preview renders correctly:
 
 ## Registration is currently OFF
 
-Registration has not opened, so every Register link is commented out and the
-portal reads "Opening Soon". To switch it back on:
+Registration has not opened. The Register buttons are still visible so the page
+does not look unfinished, but they are real `<button>` elements with
+`aria-disabled="true"`, no `href`, and an "Opens soon" hint, so nothing navigates
+anywhere. To switch registration back on:
 
-1. Set `REGISTRATION_OPEN = true` in the script at the bottom of `index.html`
-2. Search for `REGISTER LINK OFF` and uncomment each block — nav bar, mobile
-   drawer, hero, and speakers in `index.html`; nav bar, drawer, and the closing
-   block in `schedule.html`
-3. Uncomment the `#register` section in `index.html`
-4. Change the `<meta name="description">` back to "Registration opens soon."
-5. Restore the JSON-LD `offers` block — the exact snippet is in a comment beside it
+1. Search for `aria-disabled` and swap each inert Register button for the real
+   link. The exact markup sits in a comment directly above each one. There are
+   four in `index.html` (nav bar, mobile drawer, hero, speakers) and three in
+   `schedule.html` (nav bar, drawer, closing block)
+2. Uncomment the `#register` section in `index.html`
+3. Change the `<meta name="description">` back to "Registration is open."
+4. Restore the JSON-LD `offers` block, the exact snippet is in a comment beside it
 
-Step 5 matters: while registration is closed the `offers` block was removed
+Step 4 matters: while registration is closed the `offers` block was removed
 because it told Google registration was available.
 
 ## Partnership form
@@ -213,33 +215,6 @@ EOF
 
 Shared CSS now lives in `assets/site.css` rather than inline, so the two pages
 share one cached stylesheet instead of duplicating ~25 KB of rules.
-
-### Status portal
-
-The circular badge at the top of the hero reports the event's status and changes
-itself from the same clock as the countdown — no edits needed on the day:
-
-| When | Reads | Behaviour |
-|---|---|---|
-| Now (registration closed) | **Opening Soon** / Registration opens soon | Not a link |
-| Once `REGISTRATION_OPEN = true` | **Portal Open** / Registration is open | Links to Luma |
-| During the gathering | **Doors Open** / Happening now | Links to Luma, pulses |
-| After 8:00 PM | **Portal Closed** / The gathering has ended | Link removed, greyed, `role="status"` |
-
-The torch inside rolls continuously on a `rotateY` spin, so it turns like a coin
-and stays upright rather than tumbling upside down.
-
-The portal sits at the top of the hero, centred above the wordmark, at every
-screen size. It scales from 196px on a 320px phone to 246px on desktop.
-
-All three states were tested with a frozen clock. The closed state drops its
-`href` entirely, so it stops being focusable or clickable rather than pointing at
-a dead registration page. Its labels are real text, so the badge reads correctly
-to screen readers in every state. The rotating rim and the live pulse both stop
-under `prefers-reduced-motion`.
-
-To change the wording, edit `setPortal(...)` in the script at the bottom of
-`index.html`.
 
 ### Speakers rail
 
