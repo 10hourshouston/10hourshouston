@@ -102,8 +102,8 @@ Two things worth reviewing on the form itself:
 | The Burden | `#burden` | |
 | About | `#about` | |
 | The Day | `#arc` | The ten-hour arc |
-| The Day | `#arc` | Four movements, links to the schedule page |
 | Speakers | `#speakers` | Announced soon + sliding rail |
+| The Day | `#arc` | Four movements, links to the schedule page |
 | Impact at a glance | `#impact` | Prayer track record |
 | Register | `#register` | **Commented out** |
 
