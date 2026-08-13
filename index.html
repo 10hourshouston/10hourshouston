@@ -56,7 +56,7 @@
      To switch registration back on:
        1. search for  aria-disabled  and swap each inert Register button for the
           real link (the exact markup sits in a comment directly above each one).
-          Four in this file, three in schedule.html
+          Three in this file, three in schedule.html
        2. uncomment the #register section further down this page
        3. change the <meta name="description"> back to "Registration is open."
        4. restore the JSON-LD "offers" block (see the note beside it)
@@ -139,31 +139,48 @@
 
   <header class="hero" id="top">
     <div class="hero-inner">
-      <h1 class="hero-title">
-        <span class="sr-only">Witnesses</span>
-        <svg class="hero-lockup" viewBox="0 0 1243.80 280.00" aria-hidden="true"
-             focusable="false"><use href="#witnesses-lockup"></use></svg>
-      </h1>
-      <p class="hero-sub">10 hours of worship, prayer, consecration, and commissioning.</p>
-      <p class="meta">Saturday, October 31, 2026
-        <span class="sub">10:00 AM &ndash; 8:00 PM &middot; Dominion Chapel Houston, Stafford TX</span></p>
+      <div class="hero-grid">
 
-      <div class="countdown" id="countdown" aria-hidden="true">
-        <div class="cd-item"><span class="cd-num" id="cd-d">--</span><span class="cd-lab">Days</span></div>
-        <div class="cd-item"><span class="cd-num" id="cd-h">--</span><span class="cd-lab">Hrs</span></div>
-        <div class="cd-item"><span class="cd-num" id="cd-m">--</span><span class="cd-lab">Min</span></div>
-        <div class="cd-item"><span class="cd-num" id="cd-s">--</span><span class="cd-lab">Sec</span></div>
+        <div class="hero-copy">
+          <p class="pill"><span class="pill-dot" aria-hidden="true"></span>Registration opens soon</p>
+          <h1 class="hero-title">
+            <span class="sr-only">Witnesses</span>
+            <svg class="hero-lockup" viewBox="0 0 1243.80 280.00" aria-hidden="true"
+                 focusable="false"><use href="#witnesses-lockup"></use></svg>
+          </h1>
+          <p class="hero-sub">10 hours of worship, prayer, consecration, and commissioning.</p>
+          <p class="meta">Saturday, October 31, 2026
+            <span class="sub">10:00 AM &ndash; 8:00 PM &middot; Dominion Chapel Houston, Stafford TX</span></p>
+          <div class="cta-row">
+            <!-- Registration has not opened, so this button is deliberately inert.
+                 To go live, swap it for:
+                 <a class="btn btn-primary" href="https://luma.com/oe8cgk9v" target="_blank" rel="noopener">Register</a> -->
+            <button class="btn btn-primary" type="button" aria-disabled="true">Register<span class="btn-hint">Opens soon</span></button>
+            <a class="btn btn-ghost" href="#about">Learn more</a>
+          </div>
+        </div>
+
+        <!-- Countdown dial. Sits left of the title on wide screens, below it on
+             narrow ones. The numbers are aria-hidden; #cd-sr carries a quiet
+             text equivalent so a screen reader is not read a ticking clock. -->
+        <div class="dial">
+          <span class="dial-glow" aria-hidden="true"></span>
+          <span class="dial-ring" aria-hidden="true"></span>
+          <span class="dial-ring dial-ring--2" aria-hidden="true"></span>
+          <span class="dial-photo" aria-hidden="true"></span>
+          <div class="dial-face">
+            <div class="dial-count" id="countdown" aria-hidden="true">
+              <span class="dial-eyebrow">Doors open in</span>
+              <span class="dial-num" id="cd-d">--</span>
+              <span class="dial-unit">Days</span>
+              <span class="dial-clock"><span id="cd-h">--</span>:<span id="cd-m">--</span>:<span id="cd-s">--</span></span>
+            </div>
+            <p class="dial-live" id="cd-live" hidden><span class="dot" aria-hidden="true"></span><span id="cd-live-text"></span></p>
+          </div>
+        </div>
+
       </div>
-      <p class="cd-live" id="cd-live" hidden><span class="dot"></span><span id="cd-live-text"></span></p>
       <p class="sr-only" id="cd-sr"></p>
-
-      <div class="cta-row">
-        <!-- Registration has not opened, so this button is deliberately inert.
-             To go live, swap it for:
-             <a class="btn btn-primary" href="https://luma.com/oe8cgk9v" target="_blank" rel="noopener">Register</a> -->
-        <button class="btn btn-primary" type="button" aria-disabled="true">Register<span class="btn-hint">Opens soon</span></button>
-        <a class="btn btn-ghost" href="#about">Learn more</a>
-      </div>
     </div>
   </header>
 
@@ -233,14 +250,7 @@
     <div class="inner reveal">
       <span class="eyebrow">Speakers</span>
       <h2 class="h2" id="sp-h">Announced soon</h2>
-      <p>Voices from science, technology, and media, on bearing witness to Christ in the places they work. Follow along to hear the line-up first.</p>
-      <div class="pl-actions">
-        <!-- Registration has not opened, so this button is deliberately inert.
-             To go live, swap it for:
-             <a class="btn btn-primary" href="https://luma.com/oe8cgk9v" target="_blank" rel="noopener">Register</a> -->
-        <button class="btn btn-primary" type="button" aria-disabled="true">Register<span class="btn-hint">Opens soon</span></button>
-        <a class="btn btn-ghost" href="https://www.instagram.com/10hourshouston" target="_blank" rel="noopener">Follow updates</a>
-      </div>
+      <p>Voices from science, technology, and media, on bearing witness to Christ in the places they work.</p>
     </div>
   </div>
   <!-- Sliding speaker rail. Each slot is a placeholder until the line-up is set:

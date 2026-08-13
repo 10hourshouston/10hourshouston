@@ -216,6 +216,27 @@ EOF
 Shared CSS now lives in `assets/site.css` rather than inline, so the two pages
 share one cached stylesheet instead of duplicating ~25 KB of rules.
 
+### Hero layout
+
+The hero is a two-column split above 940px: a circular countdown dial on the
+left, the title block on the right. Below 940px it stacks and centres, with the
+title block first and the dial beneath it.
+
+The dial replaces the old four-box countdown. It shows the day count large, a
+live HH:MM:SS beneath, and the city photo faded inside the ring. When the
+gathering starts it swaps to "Happening now", and afterwards to "The gathering
+has ended". The numbers are `aria-hidden`; `#cd-sr` carries a quiet day count so
+a screen reader is not read a ticking clock.
+
+In the markup the title block comes first and the dial second, so the `h1` is
+early in the reading order; CSS `order` puts the dial on the left visually.
+Nothing inside the dial is focusable, so the visual/DOM mismatch is harmless.
+
+One thing to watch if you restyle it: the outer glow uses `inset:0`, not a
+negative inset. Bleeding the gradient outside the circle widens `scrollWidth`
+and caused horizontal overflow at 320px. The halo comes from the ring's
+`box-shadow`, which does not affect layout.
+
 ### Speakers rail
 
 `#speakers` has a sliding rail of six placeholder cards, duplicated once so the

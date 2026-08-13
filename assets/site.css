@@ -115,7 +115,7 @@
 
   /* ---------- HERO ---------- */
   .hero{position:relative; min-height:100svh; display:flex; align-items:center;
-        padding:calc(var(--nav-h) + 54px) 0 84px; text-align:center; color:#f2efe9}
+        padding:calc(var(--nav-h) + 54px) 0 84px; color:#f2efe9}
   .hero-inner{position:relative; z-index:2; width:min(1040px,92vw); margin:0 auto}
     /* The wordmark is artwork, not type. The brand spec forbids shadows, glows and
      outlines on it, so no text-shadow/filter here. This is the Wordmark-Only
@@ -125,25 +125,60 @@
   /* Fluid across every width. 92vw keeps it edge-to-edge on phones, 860px caps
      it on desktop. Artwork is 88.8% of the box; the rest is the spec's built-in
      clear space (half the cap height on all four sides). */
-  .hero-lockup{display:block; width:min(92vw,860px); height:auto; margin:0 auto}
-  .hero-sub{color:#dcd6cc; font-weight:500; font-size:clamp(1rem,2.6vw,1.24rem); margin:26px auto 0;
-            max-width:600px; line-height:1.5; text-shadow:0 1px 16px rgba(0,0,0,.4)}
+  .hero-lockup{display:block; width:100%; max-width:640px; height:auto; margin:0}
+  .hero-sub{color:#dcd6cc; font-weight:500; font-size:clamp(1rem,2.6vw,1.24rem); margin:24px 0 0;
+            max-width:560px; line-height:1.5; text-shadow:0 1px 16px rgba(0,0,0,.4)}
   .meta{margin-top:24px; font-size:1.1rem; color:#f4f1ea; font-weight:600; letter-spacing:.02em}
   .meta .sub{display:block; margin-top:9px; font-size:.92rem; color:#c6bfb3; font-weight:400}
 
-  .countdown{display:flex; gap:12px; justify-content:center; margin-top:30px; flex-wrap:wrap}
-  .cd-item{min-width:76px; padding:14px 12px; border:1px solid rgba(255,255,255,.14); border-radius:10px;
-           background:rgba(255,255,255,.05); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px)}
-  .cd-num{display:block; font-weight:700; font-size:1.85rem; line-height:1; color:#fbf8f2; font-variant-numeric:tabular-nums}
-  .cd-lab{display:block; margin-top:7px; font-family:var(--f-mono); font-size:.6rem; letter-spacing:.16em;
-          text-transform:uppercase; color:#c7a795}
-  .cd-live{margin-top:30px; font-family:var(--f-mono); font-size:.82rem; letter-spacing:.14em;
-           text-transform:uppercase; color:var(--accent-soft)}
-  .cd-live .dot{display:inline-block; width:8px; height:8px; margin-right:9px; border-radius:50%;
-                background:var(--accent); animation:beat 2.4s infinite}
+  /* ---------- HERO SPLIT ---------- */
+  .hero-grid{display:grid; grid-template-columns:minmax(260px,360px) 1fr; gap:clamp(32px,5vw,64px);
+             align-items:center; width:100%}
+  .hero-copy{order:2; text-align:left}
+  .dial{order:1}
+
+  .pill{display:inline-flex; align-items:center; gap:10px; margin:0 0 22px; padding:8px 16px;
+        border:1px solid rgba(247,51,1,.42); border-radius:100px; background:rgba(247,51,1,.1);
+        font-family:var(--f-mono); font-size:.62rem; letter-spacing:.16em; text-transform:uppercase;
+        color:#ffb695}
+  .pill-dot{width:7px; height:7px; border-radius:50%; background:var(--accent); flex:0 0 auto;
+            animation:pillbeat 2.6s ease-in-out infinite}
+  @keyframes pillbeat{0%,100%{opacity:.5}50%{opacity:1}}
+
+  /* ---------- COUNTDOWN DIAL ---------- */
+  .dial{position:relative; width:min(100%,360px); aspect-ratio:1; margin:0 auto;
+        display:grid; place-items:center; isolation:isolate}
+  /* inset:0, not a negative inset: a bleed outside the circle widens
+     scrollWidth and produced horizontal overflow at 320px. The outer halo
+     comes from the ring's box-shadow, which does not affect layout. */
+  .dial-glow{position:absolute; inset:0; border-radius:50%; pointer-events:none;
+             background:radial-gradient(circle, rgba(247,51,1,.26), transparent 72%)}
+  .dial-ring{position:absolute; inset:0; border-radius:50%; pointer-events:none;
+             border:1px solid rgba(247,51,1,.55);
+             box-shadow:0 0 46px rgba(247,51,1,.34), inset 0 0 38px rgba(247,51,1,.16)}
+  .dial-ring--2{inset:7%; border-color:rgba(247,51,1,.26); box-shadow:none}
+  .dial-photo{position:absolute; inset:15%; border-radius:50%; pointer-events:none;
+              background:image-set(url(/assets/city-800.webp) type("image/webp"), url(/assets/city-800.jpg) type("image/jpeg"))
+                         center/cover no-repeat;
+              opacity:.3;
+              -webkit-mask-image:radial-gradient(circle, #000 52%, transparent 78%);
+                      mask-image:radial-gradient(circle, #000 52%, transparent 78%)}
+  .dial-face{position:relative; z-index:1; text-align:center; padding:0 12%}
+  .dial-eyebrow{display:block; font-family:var(--f-mono); font-size:.6rem; letter-spacing:.2em;
+                text-transform:uppercase; color:#ffb695}
+  .dial-num{display:block; margin-top:6px; font-weight:700; font-size:clamp(3.4rem,9vw,5rem);
+            line-height:.94; letter-spacing:-.04em; color:#fbf8f2; font-variant-numeric:tabular-nums}
+  .dial-unit{display:block; margin-top:4px; font-family:var(--f-mono); font-size:.66rem;
+             letter-spacing:.26em; text-transform:uppercase; color:#d8d2c8}
+  .dial-clock{display:block; margin-top:14px; font-family:var(--f-mono); font-size:.92rem;
+              letter-spacing:.1em; color:var(--accent-soft); font-variant-numeric:tabular-nums}
+  .dial-live{margin:0; font-family:var(--f-mono); font-size:.8rem; letter-spacing:.14em;
+             text-transform:uppercase; color:var(--accent-soft); line-height:1.6}
+  .dial-live .dot{display:inline-block; width:8px; height:8px; margin-right:9px; border-radius:50%;
+                  background:var(--accent); animation:beat 2.4s infinite}
   @keyframes beat{0%{box-shadow:0 0 0 0 rgba(247,51,1,.5)}70%{box-shadow:0 0 0 9px rgba(247,51,1,0)}100%{box-shadow:0 0 0 0 rgba(247,51,1,0)}}
 
-  .cta-row{margin-top:34px; display:flex; gap:14px; justify-content:center; align-items:center; flex-wrap:wrap}
+  .cta-row{margin-top:32px; display:flex; gap:14px; align-items:center; flex-wrap:wrap}
 
 
   /* ---------- SECTIONS ---------- */
@@ -193,7 +228,6 @@
   .panelists{padding:88px 0; text-align:center; position:relative}
   .panelists .inner{max-width:600px; margin:0 auto}
   .panelists p{color:var(--text-dim); margin:14px auto 0}
-  .pl-actions{display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:30px}
 
 
   /* ---------- SPEAKERS MARQUEE ---------- */
@@ -287,16 +321,20 @@
     .foot-cols{gap:32px}
     .cta-row .btn{width:100%}
   }
-  @media (max-width:380px){
-    .cd-item{min-width:66px; padding:12px 8px}
-    .cd-num{font-size:1.5rem}
+  @media (max-width:940px){
+    .hero{text-align:center}
+    .hero-grid{grid-template-columns:1fr; gap:38px; justify-items:center}
+    .hero-copy{order:1; text-align:center}
+    .dial{order:2; width:min(92vw,320px)}
+    .hero-lockup{margin:0 auto; max-width:none; width:min(92vw,640px)}
+    .hero-sub{margin-left:auto; margin-right:auto}
+    .cta-row{justify-content:center}
   }
   /* Short viewports (landscape phones, small laptops): the hero has a lot of
      stacked content, so pull the lockup and spacing in instead of overflowing. */
   @media (max-height:760px) and (min-width:861px){
     .hero-lockup{width:min(80vw,660px)}
       .hero{padding-top:calc(var(--nav-h) + 30px); padding-bottom:56px}
-    .countdown{margin-top:22px}
     .cta-row{margin-top:26px}
   }
   @media (max-height:560px){
