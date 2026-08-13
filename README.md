@@ -229,10 +229,8 @@ itself from the same clock as the countdown — no edits needed on the day:
 The torch inside rolls continuously on a `rotateY` spin, so it turns like a coin
 and stays upright rather than tumbling upside down.
 
-On screens 1180px and wider the portal sits in the empty space to the right of
-the hero text, level with the buttons. Below that it returns to normal flow
-underneath them. Measured clearance from the nearest text is 94px at every width
-from 1180px to 1920px.
+The portal sits at the top of the hero, centred above the wordmark, at every
+screen size. It scales from 196px on a 320px phone to 246px on desktop.
 
 All three states were tested with a frozen clock. The closed state drops its
 `href` entirely, so it stops being focusable or clickable rather than pointing at

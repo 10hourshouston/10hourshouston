@@ -132,7 +132,7 @@
 
 
   /* ---------- STATUS PORTAL ---------- */
-  .portal{position:relative; display:grid; place-items:center; margin:0 auto;
+  .portal{position:relative; display:grid; place-items:center; margin:0 auto 32px;
           width:clamp(196px,42vw,246px); aspect-ratio:1; border-radius:50%;
           text-decoration:none; color:inherit; isolation:isolate;
           background:radial-gradient(circle at 50% 42%, rgba(247,51,1,.14), rgba(9,11,19,.72) 70%);
@@ -209,16 +209,6 @@
     .portal.is-live{animation:none}
   }
 
-  /* On wide screens the portal moves out of the centre column and sits in the
-     empty space to the right of the text block, level with the buttons. Below
-     1180px it returns to normal flow underneath them. */
-  @media (min-width:1180px){
-    .hero-inner{position:relative}
-    .portal{position:absolute; right:0; bottom:4px; margin:0; width:206px}
-  }
-  @media (max-width:1179px){
-    .portal{margin:38px auto 0}
-  }
 
   /* ---------- SECTIONS ---------- */
   .sec{padding:92px 0; position:relative}
