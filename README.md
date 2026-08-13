@@ -104,6 +104,7 @@ Two things worth reviewing on the form itself:
 | The Day | `#arc` | The ten-hour arc |
 | The Day | `#arc` | Four movements, links to the schedule page |
 | Speakers | `#speakers` | Announced soon + sliding rail |
+| Impact at a glance | `#impact` | Prayer track record |
 | Register | `#register` | **Commented out** |
 
 ### The programme
@@ -215,6 +216,22 @@ EOF
 
 Shared CSS now lives in `assets/site.css` rather than inline, so the two pages
 share one cached stylesheet instead of duplicating ~25 KB of rules.
+
+### Impact at a glance
+
+The four numbers on the home page (`#impact`) and on the partnership page are the
+**only verified figures that exist**. The gathering has not run yet, so there are
+no attendance, reach, or engagement numbers, and none have been invented. They
+describe the Every Sphere prayer gatherings 10 Hours Houston grew out of:
+Shift 90, Shift 120, and the 24- and 48-hour prayer retreats.
+
+The same four cards appear on both pages with different framing: the home page
+asks what stands behind the day, the partnership page uses them as track record.
+If you would rather they were not repeated, drop the `#impact` section from
+`index.html`.
+
+Once the gathering has run, this is the natural place for real figures
+(attendance, cities represented, spheres in the room).
 
 ### Hero layout
 
