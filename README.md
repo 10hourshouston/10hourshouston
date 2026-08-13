@@ -198,6 +198,26 @@ EOF
 Shared CSS now lives in `assets/site.css` rather than inline, so the two pages
 share one cached stylesheet instead of duplicating ~25 KB of rules.
 
+### Status portal
+
+The circular badge at the top of the hero reports the event's status and changes
+itself from the same clock as the countdown — no edits needed on the day:
+
+| When | Reads | Behaviour |
+|---|---|---|
+| Before 10:00 AM, Oct 31 | **Portal Open** / Registration is open | Links to Luma |
+| During the gathering | **Doors Open** / Happening now | Links to Luma, pulses |
+| After 8:00 PM | **Portal Closed** / The gathering has ended | Link removed, greyed, `role="status"` |
+
+All three states were tested with a frozen clock. The closed state drops its
+`href` entirely, so it stops being focusable or clickable rather than pointing at
+a dead registration page. Its labels are real text, so the badge reads correctly
+to screen readers in every state. The rotating rim and the live pulse both stop
+under `prefers-reduced-motion`.
+
+To change the wording, edit `setPortal(...)` in the script at the bottom of
+`index.html`.
+
 ### Speakers rail
 
 `#speakers` has a sliding rail of six placeholder cards, duplicated once so the

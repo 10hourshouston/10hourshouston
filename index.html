@@ -6,13 +6,13 @@
 <meta name="theme-color" content="#0c101c" />
 
 <!-- ==========================================================================
-     IMPORTANT — set this to your real domain before launch.
+     IMPORTANT: set this to your real domain before launch.
      Every absolute URL below (og:image, canonical, JSON-LD, sitemap) must use it,
      or link previews on WhatsApp / Instagram / iMessage / X will render blank.
      Find & replace:  https://10hourshouston.com
      ========================================================================== -->
 
-<title>10 Hours Houston · Witnesses — Sat, Oct 31, 2026</title>
+<title>10 Hours Houston · Witnesses · Sat, Oct 31, 2026</title>
 <meta name="description" content="A 10-hour gathering of worship, prayer, consecration, and commissioning, with emphasis on science, technology, and media. Saturday, October 31, 2026, 10AM–8PM at Dominion Chapel Houston, Stafford TX. Registration is open." />
 <link rel="canonical" href="https://10hourshouston.com/" />
 
@@ -25,7 +25,7 @@
 <meta property="og:image" content="https://10hourshouston.com/assets/og.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="Witnesses — 10 Hours Houston, Saturday October 31, 2026, over the Houston skyline." />
+<meta property="og:image:alt" content="Witnesses. 10 Hours Houston, Saturday October 31, 2026, over the Houston skyline." />
 <meta property="og:locale" content="en_US" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="10 Hours Houston · Witnesses" />
@@ -105,7 +105,7 @@
 
 <nav class="nav" id="nav">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="10 Hours Houston — back to top">
+    <a class="brand" href="#top" aria-label="10 Hours Houston, back to top">
       <svg class="logo" role="img" aria-label="10 Hours Houston"><use href="#logo-dark"></use></svg>
     </a>
     <div class="nav-right">
@@ -138,9 +138,19 @@
 
   <header class="hero" id="top">
     <div class="hero-inner">
-      <svg class="hero-mark" viewBox="0 0 156.5 377.5337" role="img" aria-label="10 Hours Houston torch">
-        <use href="#flame"></use>
-      </svg>
+      <!-- Status portal. Flips itself between three states from the event date:
+           open -> live -> ended. See the portal block in the script below. -->
+      <a class="portal" id="portal" href="https://luma.com/oe8cgk9v" target="_blank" rel="noopener">
+        <span class="portal-sweep" aria-hidden="true"></span>
+        <span class="portal-rim" aria-hidden="true"></span>
+        <span class="portal-inner">
+          <span class="portal-disc" aria-hidden="true">
+            <svg class="portal-icon" viewBox="0 0 156.5 377.5337"><use href="#flame"></use></svg>
+          </span>
+          <span class="portal-title" id="portal-title">Portal Open</span>
+          <span class="portal-sub" id="portal-sub">Registration is open</span>
+        </span>
+      </a>
       <h1 class="hero-title">
         <span class="sr-only">Witnesses</span>
         <svg class="hero-lockup" viewBox="0 0 1243.80 280.00" aria-hidden="true"
@@ -163,7 +173,6 @@
         <a class="btn btn-primary" href="https://luma.com/oe8cgk9v" target="_blank" rel="noopener">Register</a>
         <a class="btn btn-ghost" href="#about">Learn more</a>
       </div>
-      <p class="cta-note">Registration is open</p>
     </div>
   </header>
 
@@ -204,7 +213,7 @@
         <span class="arc-num">I</span>
         <h3>Encounter</h3>
         <span class="arc-time">10:00 &ndash; 11:45 AM</span>
-        <p>Worship, consecration, and alignment &mdash; hearts made ready before anything is taught.</p>
+        <p>Worship, consecration, and alignment.</p>
       </div>
       <div class="arc-item">
         <span class="arc-num">II</span>
@@ -216,13 +225,13 @@
         <span class="arc-num">III</span>
         <h3>Engagement</h3>
         <span class="arc-time">2:20 &ndash; 6:40 PM</span>
-        <p>Two panel sessions &mdash; on artificial intelligence and on content &mdash; each answered in prayer.</p>
+        <p>Two panel sessions: one on artificial intelligence, one on media and storytelling.</p>
       </div>
       <div class="arc-item">
         <span class="arc-num">IV</span>
         <h3>Commissioning</h3>
         <span class="arc-time">6:40 &ndash; 8:00 PM</span>
-        <p>Prophetic mandate for Houston, impartation, honour, and the sending out.</p>
+        <p>Prophetic mandate for Houston, impartation, and honour.</p>
       </div>
     </div>
     <p class="arc-ends"><span>Begins <b>10:00 AM</b></span><span>Ends <b>8:00 PM</b></span></p>
@@ -412,7 +421,7 @@
 {
   "@context": "https://schema.org",
   "@type": "Event",
-  "name": "10 Hours Houston — Witnesses",
+  "name": "10 Hours Houston: Witnesses",
   "description": "A 10-hour gathering of worship, prayer, consecration, and commissioning, with emphasis on science, technology, and media.",
   "startDate": "2026-10-31T10:00:00-05:00",
   "endDate": "2026-10-31T20:00:00-05:00",
@@ -538,6 +547,27 @@
 
   function pad(n) { return (n < 10 ? '0' : '') + n; }
 
+  var portal      = document.getElementById('portal');
+  var portalTitle = document.getElementById('portal-title');
+  var portalSub   = document.getElementById('portal-sub');
+
+  function setPortal(state, title, sub) {
+    if (!portal) return;
+    if (portal.dataset.state === state) return;   // only touch the DOM on a change
+    portal.dataset.state = state;
+    portalTitle.textContent = title;
+    portalSub.textContent = sub;
+    portal.classList.toggle('is-live', state === 'live');
+    portal.classList.toggle('is-closed', state === 'closed');
+    if (state === 'closed') {
+      // no longer a destination: drop the link so it is not focusable or clickable
+      portal.removeAttribute('href');
+      portal.removeAttribute('target');
+      portal.removeAttribute('rel');
+      portal.setAttribute('role', 'status');
+    }
+  }
+
   function show(message) {
     box.hidden = true;
     liveTx.textContent = message;
@@ -548,8 +578,15 @@
 
   function tick() {
     var now = Date.now();
-    if (now >= ends) { show('The gathering has ended \u2014 thank you'); return; }
-    if (now >= target) { show('Happening now'); return; }
+    if (now >= ends) {
+      setPortal('closed', 'Portal Closed', 'The gathering has ended');
+      show('The gathering has ended \u2014 thank you'); return;
+    }
+    if (now >= target) {
+      setPortal('live', 'Doors Open', 'Happening now');
+      show('Happening now'); return;
+    }
+    setPortal('open', 'Portal Open', 'Registration is open');
 
     var x = target - now;
     var d = Math.floor(x / 86400000);
