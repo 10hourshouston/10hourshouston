@@ -1,0 +1,46 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//10 Hours Houston//Witnesses 2026//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VTIMEZONE
+TZID:America/Chicago
+X-LIC-LOCATION:America/Chicago
+BEGIN:DAYLIGHT
+TZOFFSETFROM:-0600
+TZOFFSETTO:-0500
+TZNAME:CDT
+DTSTART:19700308T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=2SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:-0500
+TZOFFSETTO:-0600
+TZNAME:CST
+DTSTART:19701101T020000
+RRULE:FREQ=YEARLY;BYMONTH=11;BYDAY=1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:witnesses-2026-10-31@10hourshouston.com
+DTSTAMP:20260813T120000Z
+DTSTART;TZID=America/Chicago:20261031T100000
+DTEND;TZID=America/Chicago:20261031T200000
+SUMMARY:10 Hours Houston — Witnesses
+DESCRIPTION:A 10-hour gathering of worship\, prayer\, consecration\, and com
+ missioning\, with emphasis on science\, technology\, and media.\n\nTheme: Wi
+ tnesses — Bearing Witness to Christ in Every Sphere\nAncient Wells. New Fro
+ ntiers.\n\nRegister: https://luma.com/oe8cgk9v\nContact: 10hourshouston@gmai
+ l.com
+LOCATION:Dominion Chapel Houston (DCH)\, 1203 Cravens Rd\, Stafford\, TX 774
+ 77
+URL:https://10hourshouston.com/
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:10 Hours Houston is tomorrow
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

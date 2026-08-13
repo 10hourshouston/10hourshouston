@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 10 Hours Houston / WITNESSES lockup
+     Typeface: Chakra Petch (SIL Open Font License 1.1)
+     Wordmark: Bold 700, tracking -5/1000 em
+     Tagline:  Regular 400, tracking +136/1000 em, optically width-matched
+     EDITABLE: live text. Chakra Petch must be installed to render correctly. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1243.80 376.26" width="1243.80" height="376.26">
+  <title>WITNESSES lockup - editable text</title>
+  <g transform="translate(70.00,70.00)" fill="#14161A">
+    <text x="0" y="140.00" font-family="Chakra Petch" font-weight="700"
+          font-size="200.00" letter-spacing="-1.000">WITNESSES</text>
+    <text x="0" y="236.26" font-family="Chakra Petch" font-weight="400"
+          font-size="76.00" letter-spacing="10.351">New Wells. New Frontiers</text>
+  </g>
+</svg>
