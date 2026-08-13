@@ -13,7 +13,7 @@
      ========================================================================== -->
 
 <title>10 Hours Houston · Witnesses · Sat, Oct 31, 2026</title>
-<meta name="description" content="A 10-hour gathering of worship, prayer, consecration, and commissioning, with emphasis on science, technology, and media. Saturday, October 31, 2026, 10AM–8PM at Dominion Chapel Houston, Stafford TX. Registration is open." />
+<meta name="description" content="A 10-hour gathering of worship, prayer, consecration, and commissioning, with emphasis on science, technology, and media. Saturday, October 31, 2026, 10AM–8PM at Dominion Chapel Houston, Stafford TX. Registration opens soon." />
 <link rel="canonical" href="https://10hourshouston.com/" />
 
 <!-- Social link previews -->
@@ -50,16 +50,18 @@
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<!-- REGISTRATION TOUCHPOINTS
-     The #register section is currently commented out (further down the page).
-     Registration still appears in these places, all pointing at the Luma link:
-       1. nav bar "Register" button          (.nav-cta)
-       2. mobile drawer "Register" button
-       3. hero "Register" button + the "Registration is open" note below it
-       4. speakers section "Register" button
-       5. <meta name="description"> ends with "Registration is open."
-       6. JSON-LD "offers" block -> the Luma URL
-     Search this file for  luma.com  to find them all. -->
+<!-- REGISTRATION IS OFF
+     Registration has not opened yet, so every Register link is commented out and
+     the status portal reads "Opening Soon".
+
+     To switch registration back on:
+       1. set  REGISTRATION_OPEN = true  in the script at the bottom of this file
+       2. search for  REGISTER LINK OFF  and uncomment each block
+          (nav bar, mobile drawer, hero, speakers here; also schedule.html)
+       3. uncomment the #register section further down this page
+       4. change the <meta name="description"> back to "Registration is open."
+       5. restore the JSON-LD "offers" block (see the note beside it)
+     Search this file for  luma.com  to find every remaining reference. -->
 
 <div class="site-bg" aria-hidden="true"></div>
 <div class="site-veil" aria-hidden="true"></div>
@@ -116,7 +118,10 @@
         <a href="#speakers">Speakers</a>
         <a href="/sponsors.html">Partner</a>
       </div>
+      <!-- REGISTER LINK OFF (nav bar). Delete this line and the one after it
+           to switch registration back on.
       <a class="btn btn-primary nav-cta" href="https://luma.com/oe8cgk9v" target="_blank" rel="noopener">Register</a>
+           END REGISTER LINK OFF -->
       <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="drawer" aria-label="Open menu">
         <span></span><span></span><span></span>
       </button>
@@ -131,26 +136,16 @@
   <a href="/schedule.html">Schedule</a>
   <a href="#speakers">Speakers</a>
   <a href="/sponsors.html">Partner With Us</a>
+  <!-- REGISTER LINK OFF (mobile drawer). Delete this line and the one after it
+       to switch registration back on.
   <a class="btn btn-primary" href="https://luma.com/oe8cgk9v" target="_blank" rel="noopener">Register</a>
+       END REGISTER LINK OFF -->
 </div>
 
 <main id="main">
 
   <header class="hero" id="top">
     <div class="hero-inner">
-      <!-- Status portal. Flips itself between three states from the event date:
-           open -> live -> ended. See the portal block in the script below. -->
-      <a class="portal" id="portal" href="https://luma.com/oe8cgk9v" target="_blank" rel="noopener">
-        <span class="portal-sweep" aria-hidden="true"></span>
-        <span class="portal-rim" aria-hidden="true"></span>
-        <span class="portal-inner">
-          <span class="portal-disc" aria-hidden="true">
-            <svg class="portal-icon" viewBox="0 0 156.5 377.5337"><use href="#flame"></use></svg>
-          </span>
-          <span class="portal-title" id="portal-title">Portal Open</span>
-          <span class="portal-sub" id="portal-sub">Registration is open</span>
-        </span>
-      </a>
       <h1 class="hero-title">
         <span class="sr-only">Witnesses</span>
         <svg class="hero-lockup" viewBox="0 0 1243.80 280.00" aria-hidden="true"
@@ -170,9 +165,26 @@
       <p class="sr-only" id="cd-sr"></p>
 
       <div class="cta-row">
+        <!-- REGISTER LINK OFF (hero). Delete this line and the one after it
+             to switch registration back on.
         <a class="btn btn-primary" href="https://luma.com/oe8cgk9v" target="_blank" rel="noopener">Register</a>
+             END REGISTER LINK OFF -->
         <a class="btn btn-ghost" href="#about">Learn more</a>
       </div>
+
+      <!-- Status portal. Flips itself between three states from the event date:
+           open -> live -> ended. See the portal block in the script below. -->
+      <a class="portal is-soon" id="portal">
+        <span class="portal-sweep" aria-hidden="true"></span>
+        <span class="portal-rim" aria-hidden="true"></span>
+        <span class="portal-inner">
+          <span class="portal-disc" aria-hidden="true">
+            <svg class="portal-icon" viewBox="0 0 156.5 377.5337"><use href="#flame"></use></svg>
+          </span>
+          <span class="portal-title" id="portal-title">Opening Soon</span>
+          <span class="portal-sub" id="portal-sub">Registration opens soon</span>
+        </span>
+      </a>
     </div>
   </header>
 
@@ -204,9 +216,9 @@
        gathering describes them. Exact clock times are published closer to the date. -->
   <section class="arc-sec" id="arc" aria-labelledby="arc-h"><div class="wrap">
     <div class="arc-head reveal">
-      <span class="eyebrow">The Day</span>
-      <h2 class="h2" id="arc-h">Ten hours, four movements.</h2>
-      <p>600 minutes, running from encounter through to sending. The day is built in four movements, each with its own work to do.</p>
+      <span class="eyebrow">Run of Day</span>
+      <h2 class="h2" id="arc-h">The shape of the day.</h2>
+      <p>600 minutes and 27 segments across four movements, with times held deliberately tight so the ten hours carry a clear arc.</p>
     </div>
     <div class="arc reveal">
       <div class="arc-item">
@@ -235,7 +247,7 @@
       </div>
     </div>
     <p class="arc-ends"><span>Begins <b>10:00 AM</b></span><span>Ends <b>8:00 PM</b></span></p>
-    <p class="arc-note"><a class="arc-link" href="/schedule.html">See the shape of the day &#8594;</a></p>
+    <p class="arc-note"><a class="arc-link" href="/schedule.html">See the full programme &#8594;</a></p>
   </div></section>
 
   <section class="panelists sec-alt" id="speakers" aria-labelledby="sp-h"><div class="wrap">
@@ -244,7 +256,10 @@
       <h2 class="h2" id="sp-h">Announced soon</h2>
       <p>Voices from science, technology, and media, on bearing witness to Christ in the places they work. Follow along to hear the line-up first.</p>
       <div class="pl-actions">
+        <!-- REGISTER LINK OFF (speakers). Delete this line and the one after it
+             to switch registration back on.
         <a class="btn btn-primary" href="https://luma.com/oe8cgk9v" target="_blank" rel="noopener">Register</a>
+             END REGISTER LINK OFF -->
         <a class="btn btn-ghost" href="https://www.instagram.com/10hourshouston" target="_blank" rel="noopener">Follow updates</a>
       </div>
     </div>
@@ -451,16 +466,21 @@
       "https://www.instagram.com/10hourshouston",
       "https://www.tiktok.com/@10hourshouston"
     ]
-  },
-  "offers": {
-    "@type": "Offer",
-    "url": "https://luma.com/oe8cgk9v",
-    "availability": "https://schema.org/InStock"
   }
 }
 </script>
-<!-- If the event is free, add  "price": "0", "priceCurrency": "USD"  inside "offers"
-     above. Google needs a price to show the richest event result. -->
+<!-- The "offers" block was removed while registration is closed: it told Google
+     registration was available. Paste it back inside the object above (after the
+     "organizer" block, with a comma) when registration opens:
+
+       "offers": {
+         "@type": "Offer",
+         "url": "https://luma.com/oe8cgk9v",
+         "availability": "https://schema.org/InStock"
+       }
+
+     If the event is free, add  "price": "0", "priceCurrency": "USD"  to it.
+     Google needs a price to show the richest event result. -->
 
 <script>
 (function () {
@@ -535,6 +555,11 @@
 
   /* ---- countdown ----
      Oct 31 2026 is still CDT (US DST ends Nov 1 2026), so the offset is -05:00. */
+  // Flip to true when registration opens. Also uncomment the REGISTER LINK OFF
+  // blocks and the #register section; see the note at the top of <body>.
+  var REGISTRATION_OPEN = false;
+  var REGISTER_URL = 'https://luma.com/oe8cgk9v';
+
   var target = new Date('2026-10-31T10:00:00-05:00').getTime();
   var ends   = new Date('2026-10-31T20:00:00-05:00').getTime();
   var box    = document.getElementById('countdown');
@@ -557,8 +582,21 @@
     portal.dataset.state = state;
     portalTitle.textContent = title;
     portalSub.textContent = sub;
+    portal.classList.toggle('is-soon', state === 'soon');
     portal.classList.toggle('is-live', state === 'live');
     portal.classList.toggle('is-closed', state === 'closed');
+    if (state === 'open' || state === 'live') {
+      portal.setAttribute('href', REGISTER_URL);
+      portal.setAttribute('target', '_blank');
+      portal.setAttribute('rel', 'noopener');
+      portal.removeAttribute('role');
+    } else if (state === 'soon') {
+      // nothing to link to yet, so it stays a plain status badge
+      portal.removeAttribute('href');
+      portal.removeAttribute('target');
+      portal.removeAttribute('rel');
+      portal.setAttribute('role', 'status');
+    }
     if (state === 'closed') {
       // no longer a destination: drop the link so it is not focusable or clickable
       portal.removeAttribute('href');
@@ -586,7 +624,8 @@
       setPortal('live', 'Doors Open', 'Happening now');
       show('Happening now'); return;
     }
-    setPortal('open', 'Portal Open', 'Registration is open');
+    if (REGISTRATION_OPEN) setPortal('open', 'Portal Open', 'Registration is open');
+    else                   setPortal('soon', 'Opening Soon', 'Registration opens soon');
 
     var x = target - now;
     var d = Math.floor(x / 86400000);

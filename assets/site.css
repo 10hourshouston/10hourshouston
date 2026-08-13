@@ -132,7 +132,7 @@
 
 
   /* ---------- STATUS PORTAL ---------- */
-  .portal{position:relative; display:grid; place-items:center; margin:0 auto 34px;
+  .portal{position:relative; display:grid; place-items:center; margin:0 auto;
           width:clamp(196px,42vw,246px); aspect-ratio:1; border-radius:50%;
           text-decoration:none; color:inherit; isolation:isolate;
           background:radial-gradient(circle at 50% 42%, rgba(247,51,1,.14), rgba(9,11,19,.72) 70%);
@@ -151,16 +151,33 @@
                 animation:portalspin 26s linear infinite}
   @keyframes portalspin{to{transform:rotate(360deg)}}
   .portal-inner{display:flex; flex-direction:column; align-items:center; justify-content:center;
-                text-align:center; padding:0 22px}
+                text-align:center; padding:0 15px}
   .portal-disc{width:clamp(42px,9vw,52px); aspect-ratio:1; border-radius:50%; display:grid;
                place-items:center; margin-bottom:14px;
                background:radial-gradient(circle at 50% 40%, rgba(247,51,1,.26), rgba(247,51,1,.05));
                border:1px solid rgba(247,51,1,.42)}
-  .portal-icon{width:56%; height:auto; display:block}
+  /* the torch rolls like a coin: rotateY keeps it upright rather than tumbling
+     upside down, which a flat 360deg spin would do to the flame */
+  .portal-disc{perspective:420px}
+  .portal-icon{width:56%; height:auto; display:block; transform-style:preserve-3d;
+               animation:torchroll 7s linear infinite}
+  @keyframes torchroll{to{transform:rotateY(360deg)}}
   .portal-title{font-weight:700; font-size:clamp(.98rem,2.3vw,1.14rem); line-height:1.12;
                 letter-spacing:.02em; word-spacing:.14em; text-transform:uppercase; color:#fbf8f2}
   .portal-sub{margin-top:9px; font-family:var(--f-mono); font-size:clamp(.5rem,1.3vw,.58rem);
-              letter-spacing:.18em; text-transform:uppercase; color:var(--accent-soft)}
+              letter-spacing:.14em; text-transform:uppercase; color:var(--accent-soft);
+              line-height:1.5; text-wrap:balance}
+
+  /* opening soon: present but not yet an invitation */
+  .portal.is-soon{cursor:default;
+    box-shadow:0 0 0 1px rgba(247,51,1,.26), 0 0 30px rgba(247,51,1,.13),
+               inset 0 0 34px rgba(247,51,1,.06)}
+  .portal.is-soon:hover{transform:none;
+    box-shadow:0 0 0 1px rgba(247,51,1,.26), 0 0 30px rgba(247,51,1,.13),
+               inset 0 0 34px rgba(247,51,1,.06)}
+  .portal.is-soon .portal-rim{border-color:rgba(247,51,1,.2)}
+  .portal.is-soon .portal-sweep{border-color:rgba(247,51,1,.22)}
+  .portal.is-soon .portal-sub{color:#c2b6a9}
 
   /* live: same shape, more urgency */
   .portal.is-live{box-shadow:0 0 0 1px rgba(247,51,1,.8), 0 0 60px rgba(247,51,1,.4),
@@ -188,7 +205,19 @@
 
   @media (prefers-reduced-motion: reduce){
     .portal-sweep{animation:none}
+    .portal-icon{animation:none}
     .portal.is-live{animation:none}
+  }
+
+  /* On wide screens the portal moves out of the centre column and sits in the
+     empty space to the right of the text block, level with the buttons. Below
+     1180px it returns to normal flow underneath them. */
+  @media (min-width:1180px){
+    .hero-inner{position:relative}
+    .portal{position:absolute; right:0; bottom:4px; margin:0; width:206px}
+  }
+  @media (max-width:1179px){
+    .portal{margin:38px auto 0}
   }
 
   /* ---------- SECTIONS ---------- */

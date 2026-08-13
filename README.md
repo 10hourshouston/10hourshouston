@@ -40,6 +40,22 @@ After deploying, check the preview renders correctly:
 
 ---
 
+## Registration is currently OFF
+
+Registration has not opened, so every Register link is commented out and the
+portal reads "Opening Soon". To switch it back on:
+
+1. Set `REGISTRATION_OPEN = true` in the script at the bottom of `index.html`
+2. Search for `REGISTER LINK OFF` and uncomment each block — nav bar, mobile
+   drawer, hero, and speakers in `index.html`; nav bar, drawer, and the closing
+   block in `schedule.html`
+3. Uncomment the `#register` section in `index.html`
+4. Change the `<meta name="description">` back to "Registration opens soon."
+5. Restore the JSON-LD `offers` block — the exact snippet is in a comment beside it
+
+Step 5 matters: while registration is closed the `offers` block was removed
+because it told Google registration was available.
+
 ## Partnership form
 
 The partner CTAs on `sponsors.html` open a Google Form:
@@ -205,9 +221,18 @@ itself from the same clock as the countdown — no edits needed on the day:
 
 | When | Reads | Behaviour |
 |---|---|---|
-| Before 10:00 AM, Oct 31 | **Portal Open** / Registration is open | Links to Luma |
+| Now (registration closed) | **Opening Soon** / Registration opens soon | Not a link |
+| Once `REGISTRATION_OPEN = true` | **Portal Open** / Registration is open | Links to Luma |
 | During the gathering | **Doors Open** / Happening now | Links to Luma, pulses |
 | After 8:00 PM | **Portal Closed** / The gathering has ended | Link removed, greyed, `role="status"` |
+
+The torch inside rolls continuously on a `rotateY` spin, so it turns like a coin
+and stays upright rather than tumbling upside down.
+
+On screens 1180px and wider the portal sits in the empty space to the right of
+the hero text, level with the buttons. Below that it returns to normal flow
+underneath them. Measured clearance from the nearest text is 94px at every width
+from 1180px to 1920px.
 
 All three states were tested with a frozen clock. The closed state drops its
 `href` entirely, so it stops being focusable or clickable rather than pointing at
