@@ -15,20 +15,18 @@ consecration, and commissioning, with emphasis on science, technology, and media
 
 ---
 
-## ⚠️ One open decision: which tagline is canonical?
+## Tagline — resolved
 
-The Witnesses logo package reads **"New Wells. New Frontiers"**. The site's
-existing body copy reads **"Ancient Wells. New Frontiers."** Both cannot be right.
+The hero uses the **Wordmark-Only** artwork, so the logo package's
+"New Wells. New Frontiers" line no longer appears anywhere. The site's only
+tagline is now "Ancient Wells. New Frontiers." in the Burden section, and the
+mark and the copy no longer contradict each other.
 
-- The hero now shows the lockup exactly as supplied, so it says *New Wells*.
-- One line of body copy still says *Ancient Wells* — in the Burden section,
-  marked with a `⚠ TAGLINE CONFLICT` comment in `index.html`. It is the only
-  place the wording still lives; the decorative footer repeat was removed.
-
-Change that one line, or send a corrected lockup. **Do not retype the tagline
-inside the SVG** — the package warns that the +136/1000 em tracking is calculated
-so the tagline's width matches the wordmark exactly, flush on both edges. New
-wording means the tracking must be recalculated.
+If you ever put the full lockup back, that conflict returns — decide which
+wording is canonical first. **Never retype the tagline inside the SVG**: the
+package warns the +136/1000 em tracking is calculated so the tagline's width
+matches the wordmark exactly, flush on both edges. New wording means the tracking
+must be recalculated.
 
 ## Domain
 
@@ -41,6 +39,27 @@ After deploying, check the preview renders correctly:
 - Google event listing — https://search.google.com/test/rich-results
 
 ---
+
+## Partnership form
+
+The partner CTAs on `sponsors.html` open a Google Form:
+
+```
+https://docs.google.com/forms/d/e/1FAIpQLSfKlBk-TZRSvJ_zPvwQr21Fkhj8cvZSk8qzjtuMpSY0tlbUVg/viewform
+```
+
+Verified public — it opens without a Google sign-in. The `ouid` parameter from the
+original share link was **removed**: it is your Google account id and is not needed
+for the form to load. Email remains available as a secondary route beneath the CTA
+and in the footer.
+
+Two things worth reviewing on the form itself:
+
+- It collects Name, Email, **Address (required)**, Phone, Comments. There is no
+  company/organisation field and no partnership-level field, so enquiries will
+  arrive without the two details you most need to reply.
+- Requiring a postal address before someone can ask a question is unusual friction
+  for a business enquiry. Consider making it optional.
 
 ## Still open
 
@@ -65,16 +84,27 @@ After deploying, check the preview renders correctly:
 | The Burden | `#burden` | |
 | About | `#about` | |
 | The Day | `#arc` | The ten-hour arc |
+| The Day | `#arc` | Four movements, links to the schedule page |
 | Speakers | `#speakers` | Announced soon + sliding rail |
 | Register | `#register` | **Commented out** |
 
-### About "The Day"
+### The programme
 
-The four movements — worship, prayer & the Word, consecration, commissioning —
-come from the gathering's own description, in the order it names them. **No clock
-times are assigned to them**, because the running order isn't set yet. Only the
-10:00 AM and 8:00 PM endpoints are shown, since those are confirmed. When the
-schedule is finalised, add times inside each `.arc-item`.
+The four movements — **Encounter, Revelation, Engagement, Commissioning** — and
+all times come from the Program of the Day PDF. An earlier version of this site
+used placeholder movements invented before that document existed; those have been
+replaced.
+
+`schedule.html` is an **overview, not the running order**. It publishes the four
+movements with their times, lengths, and segment counts, a to-scale bar of the
+day, the seven mountains, and three practical notes. It deliberately does *not*
+list the 27 individual segments — that detail goes out closer to the day.
+
+Two things from the PDF are intentionally **not** published: the "Prepared for
+Pastor Toun Fadugba" line, which is internal, and the segment-level running order.
+
+The 27 segments = 24 programme items + the 3 intervals (two exhibit/coffee breaks
+and lunch), which is how the total in the PDF reconciles.
 
 ---
 
@@ -99,8 +129,15 @@ schedule is finalised, add times inside each `.arc-item`.
 
 ### The Witnesses lockup
 
-The hero uses the **Knockout** variant (paper artwork), per the brand spec's rule
-that Knockout is for dark backgrounds and photography. Two deliberate choices:
+The hero uses the **Wordmark-Only** artwork in the Knockout paper colour, per the
+brand spec's rule that Knockout is for dark backgrounds and photography. The
+descriptive line beneath the mark ("10 hours of worship, prayer, consecration,
+and commissioning.") is page copy, not part of the artwork.
+
+The wordmark path in `index.html` is **byte-identical** to the one in
+`brand/Witnesses-Wordmark-Only.svg` — the tagline path was dropped from the
+Knockout lockup, which yields exactly the supplied wordmark-only asset. No
+artwork was redrawn or recoloured. Three deliberate choices:
 
 - **The supplied ink panel was dropped.** The spec forbids placing the lockup on a
   busy image "without a solid or scrimmed panel behind it" — the page's existing
@@ -109,11 +146,14 @@ that Knockout is for dark backgrounds and photography. Two deliberate choices:
 - **No shadow or glow.** The old `Witnesses` text had a `text-shadow`; the spec
   forbids shadows, outlines, bevels, gradients and glows on the mark, so it was
   removed. Don't add one back.
+- **The 180px minimum no longer applies.** That floor exists because the tagline
+  loses legibility below it; the spec's own remedy is to use Wordmark-Only, which
+  is what the hero now does.
 
 Clear space (half the cap height, all four sides) is baked into the SVG's viewBox
 padding, so it's preserved automatically at any size.
 
-**Sizing.** `width: min(92vw, 820px)` — edge-to-edge on phones, capped on desktop.
+**Sizing.** `width: min(92vw, 860px)` — edge-to-edge on phones, capped on desktop.
 The artwork is 88.8% of that box (the remainder is the spec's clear space), so the
 spec's 180px minimum holds everywhere. Measured:
 
@@ -122,8 +162,8 @@ spec's 180px minimum holds everywhere. Measured:
 | 320 × 568 (iPhone SE) | 261 px |
 | 390 × 844 (iPhone 14) | 318 px |
 | 768 × 1024 (iPad) | 627 px |
-| 1440 × 900 (desktop) | 728 px |
-| 844 × 390 (landscape) | 461 px |
+| 1440 × 900 (desktop) | 763 px |
+| 844 × 390 (landscape) | 497 px |
 
 Short viewports get their own rules: below 760px tall the lockup and spacing pull
 in, and below 560px tall the torch mark is dropped so the hero doesn't overflow.
@@ -152,6 +192,7 @@ EOF
 ## Pages
 
 - `index.html` — the event page
+- `schedule.html` — the programme overview
 - `sponsors.html` — the partnership page
 
 Shared CSS now lives in `assets/site.css` rather than inline, so the two pages
@@ -180,9 +221,18 @@ two instead. Because there are no sponsor logos yet, the proof section is the
 prayer track record (Shift 90, Shift 120, the 24- and 48-hour retreats) rather
 than a logo wall. Swap in a logo grid once partners sign.
 
-Prices, tiers, and the benefit matrix are transcribed from the PDF. Three typos
-in the source were corrected here: "Exhibit Boot" → "Exhibit booth", "hear
-witness" → "bear witness", "in an invitation" → "is an invitation".
+**No pricing is published.** The tier table and the priced à la carte list from
+the partnership PDF are deliberately not on the site — prospective
+partners are directed to get in touch instead. In their place, a "Ways to partner"
+section describes the four kinds of support (visibility, presence in the room,
+hospitality, travel support) with no amounts and no tier names attached, so the
+page still tells someone what partnering involves without quoting a figure.
+
+If you would rather the page say nothing at all about what partnership includes,
+delete the `.ways` section from `sponsors.html` and its rules from `site.css`.
+
+Two typos in the PDF's prose were corrected in the copy that was kept:
+"hear witness" → "bear witness", "in an invitation" → "is an invitation".
 
 ## Files
 
@@ -254,6 +304,17 @@ read aloud — and a quiet day count is exposed to screen readers instead.
 ## Deploy
 
 Static site, no build step.
+
+**Before deploying, note what else becomes public.** Everything in this folder is
+served as-is, so `/README.md` and `/brand/` — including the logo specification PDF
+and the font files — would be reachable by URL. If you would rather they weren't,
+either delete them from the deployed copy or exclude them:
+
+- **Vercel** — add a `.vercelignore` containing `README.md` and `brand/`
+- **Netlify** — same, in `.netlifyignore`
+- **Cloudflare Pages** — remove them from the build output
+
+The site itself does not reference either, so removing them breaks nothing.
 
 - **Vercel:** import the repo. Every push auto-deploys.
 - **Netlify / Cloudflare Pages:** drag the folder in, or connect the repo.
